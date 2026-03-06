@@ -1,56 +1,27 @@
-📦 Magalu Challenge – API de Agendamentos
-API REST robusta desenvolvida para o gerenciamento de agendamentos de envio de mensagens, focada em escalabilidade e manutenção.
+# 📦 Desafio Magazine Luiza – API de Agendamentos
 
-🚀 Funcionalidades
-Agendamento Inteligente: Criação de novos envios com validação de data/hora.
+API REST desenvolvida em **.NET** para gerenciamento de agendamentos de envio de mensagens. O sistema permite criar, consultar e remover agendamentos, aplicando regras de domínio para garantir a consistência dos dados.
 
-Gestão de Status: Controle preciso do ciclo de vida do agendamento (Pendente, Enviado, Cancelado).
+## Estrutura do projeto
 
-Consulta Rápida: Recuperação de dados via ID.
+O projeto segue os princípios de **Clean Architecture**, separando as responsabilidades em camadas:
 
-Remoção Segura: Cancelamento ou exclusão de registros conforme regras de domínio.
+- `Magalu.Domain` - Contém as entidades, interfaces e validações das regras de negócio.
+- `Magalu.Application` - Implementa os casos de uso, DTOs e serviços da aplicação.
+- `Magalu.Infrastructure` - Gerencia o acesso a dados, persistência e integrações externas.
+- `Magalu.API` - Interface de entrada (Controllers) e configuração da injeção de dependência.
 
-🏗️ Arquitetura e Design
-O projeto segue os princípios da Clean Architecture (Arquitetura Limpa), garantindo que as regras de negócio sejam independentes de frameworks e ferramentas externas.
+## Requisitos
 
-Estrutura de Pastas
-Plaintext
-src/
-├── Magalu.Domain/       # Entidades, Interfaces e Regras de Negócio (Core)
-├── Magalu.Application/  # DTOs, Mappers e Casos de Uso (Services)
-├── Magalu.Infra/        # Repositórios, Contexto do Banco e Configurações
-└── Magalu.API/          # Controllers e Configuração de Injeção de Dependência
-🛠️ Tecnologias Utilizadas
-Linguagem: C#
+- .NET SDK 6.0+ (Recomendável 8.0).
+- Banco de Dados (SQL Server ou In-Memory para testes).
+- IDE (VS Code, Visual Studio ou Rider).
 
-Framework: ASP.NET Core 8.0
+> O projeto utiliza **Clean Architecture** para garantir baixo acoplamento e alta coesão entre os módulos.
 
-ORM: Entity Framework Core
+## Como executar
 
-Banco de Dados: SQL Server / PostgreSQL (ou In-Memory para testes)
-
-Documentação: Swagger (OpenAPI)
-
-⚙️ Como Executar o Projeto
-Clone o repositório:
-
-Bash
-git clone https://github.com/seu-usuario/nome-do-repo.git
-Navegue até a pasta da API:
-
-Bash
-cd src/Magalu.API
-Restaure as dependências e rode o projeto:
-
-Bash
-dotnet restore
-dotnet run
-Acesse o Swagger:
-Abra seu navegador em http://localhost:5000/swagger para testar os endpoints.
-
-📝 Regras de Domínio Aplicadas
-[!IMPORTANT]
-
-Não é permitido agendar mensagens para datas retroativas.
-
-O status do agendamento só pode ser alterado seguindo o fluxo: Pendente → Enviado ou Cancelado.
+1. Abra um terminal na pasta raiz do projeto.
+2. Restaure as dependências:
+   ```bash
+   dotnet restore
